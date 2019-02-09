@@ -40,12 +40,14 @@ var annotations = (function(title) {
       {
         "selectors": ["#cite_ref-2", "sup.reference:nth-child(13)", ".mw-parser-output > p:nth-child(3) > sup:nth-child(13)"],
         "id": "WZ4#1",
-        "text": "Seriously? It's been AGES! Follow this up."
+        "text": "Seriously? It's been AGES! Follow this up.",
+        "article_version": 879677380
       },
       {
         "selectors": ["#cite_ref-1", "sup.reference:nth-child(9)", ".mw-parser-output > p:nth-child(3) > sup:nth-child(9)"],
         "id": "WZ4#2",
-        "text": "Why?"
+        "text": "Why?",
+        "article_version": 879677380
       }
     ]
   }[title];

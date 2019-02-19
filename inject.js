@@ -96,7 +96,7 @@ function location_specifier(specifier) {
     case "selector":
       return [document.querySelector(specifier.selector), 0];
     default:
-      return undefined;
+      return [undefined, 0];
   }
 }
 

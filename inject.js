@@ -1,3 +1,14 @@
+// ==UserScript==
+// @name WikiNotate
+// @namespace https://github.com/wizzwizz4/wikinotate/
+// @description A MediaWiki annotator
+// @version ! ! ! ! alpha is not even close
+// @run-at document-end
+// @noframes
+// @grant none
+// @match https://en.wikipedia.org/wiki/Solresol
+// ==/UserScript==
+
 // The code to inject.
 (function(){
 

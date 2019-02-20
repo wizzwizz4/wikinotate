@@ -27,6 +27,19 @@ sheet.insertRule(".wn-annotation { \
   color: red;                      \
   cursor: pointer;                 \
 }");
+sheet.insertRule(".wn-annotation a { \
+  color: inherit;                    \
+  text-decoration: inherit;          \
+}");
+sheet.insertRule(".wn-note-list { \
+  background-color: white;        \
+  margin: 0.1em;                  \
+  border: thin solid red;         \
+  color: black;                   \
+}");
+sheet.insertRule(".wn-note:target { \
+  background-color: yellow;         \
+}");
 
 /************\
 * Dummy data *
@@ -100,15 +113,29 @@ function location_specifier(specifier) {
   }
 }
 
+var note_list = document.createElement("div");
+note_list.setAttribute("class", "wn-note-list");
+note_list.innerHTML = "<h1>WikiNotate annotations</h1>";
+document.body.insertBefore(note_list, null);
+
 for (var i = 0; i < annotations.length; i += 1) {
   var annotation = annotations[i];
   var element = document.createElement("span");
   element.setAttribute("class", "wn-annotation");
-  element.innerText = "[" + annotation.id + "]";
   element.setAttribute("title", annotation.text);
+  var anchor = document.createElement("a");
+  anchor.innerText = "[" + annotation.id + "]";
+  anchor.setAttribute("href", "#wn-note-" + btoa(annotation.id));
+  element.insertBefore(anchor, null);
   // Todo: Pay attention to the offset
   var annotatee = get_location(annotation.location)[0];
   annotatee.parentElement.insertBefore(element, annotatee.nextSibling);
+  
+  var element = document.createElement("div");
+  element.setAttribute("class", "wn-note");
+  element.setAttribute("id", "wn-note-" + btoa(annotation.id));
+  element.innerText = "[" + annotation.id + "]: " + annotation.text;
+  note_list.insertBefore(element, null);
 }
 
 })();
